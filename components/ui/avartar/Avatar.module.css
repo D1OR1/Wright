@@ -1,0 +1,79 @@
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid transparent;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color)) border-box;
+  box-shadow: 
+    0 0 0 1px var(--bg-color),
+    0 8px 32px rgba(0, 212, 255, 0.3),
+    0 0 50px rgba(0, 212, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  animation: avatarGlow 4s ease-in-out infinite alternate;
+}
+
+.avatar::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  border-radius: 50%;
+  z-index: -1;
+  animation: borderRotate 3s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes avatarGlow {
+  0% {
+    box-shadow: 
+      0 0 0 1px var(--bg-color),
+      0 8px 32px rgba(0, 212, 255, 0.3),
+      0 0 50px rgba(0, 212, 255, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 0 1px var(--bg-color),
+      0 12px 40px rgba(0, 212, 255, 0.5),
+      0 0 80px rgba(0, 212, 255, 0.2);
+  }
+}
+
+.avatar:hover {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 
+    0 0 0 1px var(--bg-color),
+    0 20px 60px rgba(0, 212, 255, 0.6),
+    0 0 100px rgba(0, 212, 255, 0.3);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.small {
+  width: 80px;
+  height: 80px;
+}
+
+.medium {
+  width: 150px;
+  height: 150px;
+}
+
+.large {
+  width: 200px;
+  height: 200px;
+}

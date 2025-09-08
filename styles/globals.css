@@ -1,0 +1,170 @@
+/* 全局样式变量 - 深色主题 */
+:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #7c3aed;
+  --accent-color: #f59e0b;
+  --text-color: #ffffff;
+  --text-light: #a1a1aa;
+  --text-muted: #71717a;
+  --bg-color: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --border-color: #27272a;
+  --border-light: #3f3f46;
+}
+
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  line-height: 1.6;
+  background: var(--bg-color);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 动态背景蒙层 - 覆盖整个页面 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 60% 40%, rgba(0, 212, 255, 0.06) 0%, transparent 70%),
+    radial-gradient(circle at 30% 70%, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+  animation: backgroundShift 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* 动态背景动画 - 平滑的颜色变化 */
+@keyframes backgroundShift {
+  0%, 100% {
+    opacity: 1;
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  20% {
+    opacity: 0.9;
+    filter: hue-rotate(20deg) saturate(1.1);
+  }
+  40% {
+    opacity: 0.8;
+    filter: hue-rotate(40deg) saturate(1.2);
+  }
+  60% {
+    opacity: 0.9;
+    filter: hue-rotate(60deg) saturate(1.1);
+  }
+  80% {
+    opacity: 0.85;
+    filter: hue-rotate(80deg) saturate(1.05);
+  }
+}
+
+/* 网格背景效果 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 30s linear infinite;
+  z-index: -2;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(25px, 25px);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(50px, 50px);
+    opacity: 0.3;
+  }
+}
+
+/* 主容器样式 */
+main {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+/* 通用类 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  padding: 80px 0;
+  position: relative;
+  background: transparent;
+  z-index: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+}
