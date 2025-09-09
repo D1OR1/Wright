@@ -31,7 +31,6 @@ pnpm dev
 - Next.js 14
 - React 18
 - TypeScript
-- Tailwind CSS
 
 ## 项目结构
 
