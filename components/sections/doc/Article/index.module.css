@@ -1,0 +1,155 @@
+.docCard {
+  position: relative;
+  background: #1b1e25;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  /* transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06); */
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.docCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.3);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.iconWrap {
+  width: 56px;
+  height: 50px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: scale(1);
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.docCard:hover .iconWrap {
+  transform: scale(1.06);
+}
+
+.docIcon {
+  width: 28px;
+  height: 28px;
+  opacity: 0.9;
+  filter: invert(1);
+}
+
+/* footer icons are smaller */
+.footerIcon {
+  width: 15px;
+  height: 15px;
+  opacity: 0.9;
+  filter: invert(1);
+}
+.countIcon {
+  width: 12px;
+  height: 12px;
+  opacity: 0.9;
+  filter: invert(1);
+}
+.docTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin: 16px 0 10px;
+  line-height: 1.45;
+}
+
+.docDescription {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  font-size: 12px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+}
+
+.cardFooter {
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 10px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dateRow{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.dateLeft{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+.count{
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+.readTime{
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.readBtn {
+  background: #fff;
+  border: none;
+  color: #0f1115;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  transform: translateY(3px);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+  gap: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 50%;
+}
+.readIcon{
+  width: 18px;
+  height: 18px;
+  opacity: 0.9;
+}
+.docCard:hover .readBtn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.readBtn:hover {
+  background: #e9f0ff;
+}

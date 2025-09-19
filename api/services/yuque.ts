@@ -26,11 +26,23 @@ async function requestYuque(path: string) {
 }
 // 获取知识库
 export async function getYuqueStore(repo: string) {
-  const path = `/repos/${encodeURIComponent(repo)}/docs`; // 例如 "user/book" 或数字 id
+  const path = `/repos/${encodeURIComponent(repo)}/docs`;
   return requestYuque(path); // 返回数组/对象，浏览器可直接用
 }
 // 获取用户所有知识库
 export async function getYuqueUserRepos(login: string) {
   const path = `/users/${encodeURIComponent(login)}/repos`;
+  return requestYuque(path);
+}
+// 获取知识库内的文章列表
+export async function getYuqueArticleList(repo: string) {
+  const path = `/repos/${encodeURIComponent(repo)}/toc`;
+  return requestYuque(path);
+}
+// 获取知识库内的某个文章
+export async function getYuqueArticle(repo: string, doc: string) {
+  const path = `/repos/${encodeURIComponent(repo)}/docs/${encodeURIComponent(
+    doc
+  )}`;
   return requestYuque(path);
 }
