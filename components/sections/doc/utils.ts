@@ -30,6 +30,12 @@ export async function getArticleList(repo: string) {
   return await getYuqueArticleList(repo);
 }
 
+// 获取知识库内的文章列表长度
+export async function getArticleListLength(repo: string) {
+  const dataList = await getArticleList(repo);
+  return dataList.length;
+}
+
 // 获取知识库内的文章
 export async function getArticle(repo: string, doc: string) {
   return await getYuqueArticle(repo, doc);
@@ -39,7 +45,7 @@ export async function getArticle(repo: string, doc: string) {
 export async function getFrontendArticleList() {
   const dataList = await getArticleList(defaultRepo);
   const articleList: ArticleType[] = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 6; i++) {
     const article = await getArticle(defaultRepo, dataList[i].id);
     if (article.body.length === 0) {
       continue;
@@ -47,4 +53,8 @@ export async function getFrontendArticleList() {
     articleList.push(article);
   }
   return articleList;
+}
+
+export function jumpToArticle(id: string): string {
+  return `https://www.yuque.com/doless-pa4xy/tvr206/${id}`;
 }

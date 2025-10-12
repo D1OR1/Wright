@@ -2,7 +2,7 @@
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid transparent;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color)) border-box;
+  background: transparent;
   box-shadow: 
     0 0 0 1px var(--bg-color),
     0 8px 32px rgba(0, 212, 255, 0.3),
@@ -69,8 +69,8 @@
 }
 
 .medium {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .large {

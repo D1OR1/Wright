@@ -30,6 +30,11 @@ export default function Hero() {
     fetchLocation();
   }, []);
 
+  const scrollToDocs = () => {
+    const el = document.getElementById("docs");
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className={styles.hero}>
       <div className="container">
@@ -42,12 +47,14 @@ export default function Hero() {
             </h1>
 
             <p className={styles.description}>
-              我是一名web前端开发者，专注于现代Web技术栈。
-              热爱学习新技术，享受解决问题的过程。
+              我是一名前端开发者
+              <br />
+              希望通过网站记录分享 学习笔记与心得
             </p>
             <div className={styles.cta}>
-              <button className={styles.primaryBtn}>了解更多</button>
-              <button className={styles.secondaryBtn}>联系我</button>
+              <button className={styles.secondaryBtn} onClick={scrollToDocs}>
+                了解更多
+              </button>
             </div>
           </div>
         </div>

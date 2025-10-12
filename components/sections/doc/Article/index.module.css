@@ -1,11 +1,10 @@
 .docCard {
   position: relative;
   background: #1b1e25;
+  opacity: 0.8;
   border-radius: 16px;
-  padding: 22px;
+  padding: 10px 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
-  /* transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.06); */
   overflow: hidden;
   will-change: transform;
   backface-visibility: hidden;
@@ -71,7 +70,7 @@
 .docDescription {
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.8;
-  font-size: 12px;
+  font-size: 10px;
   margin-bottom: 22px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -108,15 +107,15 @@
 }
 .date {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
+  font-size: 10px;
 }
 .count{
   color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
+  font-size: 10px;
 }
 .readTime{
   color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .readBtn {
@@ -127,7 +126,7 @@
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 10px;
   transform: translateY(3px);
   opacity: 0;
   pointer-events: none;

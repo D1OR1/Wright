@@ -8,6 +8,8 @@
   --text-muted: #71717a;
   --bg-color: #0a0a0a;
   --bg-secondary: #111111;
+  --bg-dark: #000000;
+  --bg-quaternary: #27272a;
   --bg-tertiary: #1a1a1a;
   --border-color: #27272a;
   --border-light: #3f3f46;
@@ -122,7 +124,7 @@ main {
 }
 
 .section {
-  padding: 80px 0;
+  padding: 40px 0;
   position: relative;
   background: transparent;
   z-index: 1;

@@ -1,0 +1,33 @@
+.tabsWrap {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  width: 100vw;
+  padding: 10px 20px 10px 70px;
+  z-index: 1000;
+}
+
+.tabBtn {
+  border: 1px solid var(--border-color, #2a2f3a);
+  background:transparent;
+  color: var(--text-color);
+  padding:6px 12px;
+  border-radius: 19px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all .2s ease;
+}
+
+.tabBtn:hover {
+ transform: scale(1.02);
+}
+
+.active {
+  background:var(--text-color);
+  color: var(--bg-secondary);
+}
+
+

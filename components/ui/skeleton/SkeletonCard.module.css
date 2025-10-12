@@ -1,0 +1,76 @@
+.card {
+  position: relative;
+  background: #1b1e25;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+}
+
+.header {
+  height: 50px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 56px;
+  height: 50px;
+  border-radius: 14px;
+}
+
+.title {
+  height: 16px;
+  width: 60%;
+  border-radius: 8px;
+  margin: 16px 0 12px;
+}
+
+.text {
+  height: 10px;
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.chip {
+  height: 12px;
+  width: 80px;
+  border-radius: 999px;
+}
+
+.btn {
+  margin-left: auto;
+  height: 30px;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.shimmer {
+  position: relative;
+  background: #2a2f3a;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+

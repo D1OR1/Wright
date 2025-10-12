@@ -13,8 +13,8 @@ export default function Avatar({ src, alt, size = "small" }: AvatarProps) {
       <Image
         src={src}
         alt={alt}
-        width={200}
-        height={200}
+        width={150}
+        height={150}
         className={styles.image}
       />
     </div>

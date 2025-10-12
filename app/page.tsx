@@ -1,13 +1,30 @@
+"use client";
 import Hero from "../components/sections/hero/Hero";
-import About from "../components/sections/about/About";
 import Docs from "../components/sections/doc/Docs";
+import AllDocs from "../components/sections/doc/AllDocs";
+import TopTabs, { TopTabKey } from "../components/ui/topTab/TopTabs";
+import { useState } from "react";
 
 export default function Home() {
+  const [active, setActive] = useState<TopTabKey>("home");
+
   return (
     <main>
-      <Hero />
-      {/* <About /> */}
-      <Docs />
+      <TopTabs active={active} onChange={setActive} />
+      <section hidden={active !== "home"}>
+        <Hero />
+        <Docs
+          onLoadMore={() => {
+            setActive("all");
+            requestAnimationFrame(() => {
+              window.scrollTo({ top: 0 });
+            });
+          }}
+        />
+      </section>
+      <section hidden={active !== "all"}>
+        <AllDocs />
+      </section>
     </main>
   );
 }
