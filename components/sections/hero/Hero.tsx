@@ -49,7 +49,7 @@ export default function Hero() {
             <p className={styles.description}>
               我是一名前端开发者
               <br />
-              希望通过网站记录分享 学习笔记与心得
+              和你一起分享我的进步
             </p>
             <div className={styles.cta}>
               <button className={styles.secondaryBtn} onClick={scrollToDocs}>
