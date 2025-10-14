@@ -12,7 +12,7 @@ import {
 import { defaultRepo } from "@/config";
 
 export default function AllDocs() {
-  const BATCH_SIZE = 10; // 每批加载20个
+  const BATCH_SIZE = 10; // 每批加载10个
   const [articles, setArticles] = useState<ArticleType[]>([]);
   const [loading, setLoading] = useState(false);
   const [articleList, setArticleList] = useState<any[]>([]); // 存储所有文章ID列表
