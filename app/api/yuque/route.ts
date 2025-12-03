@@ -53,7 +53,7 @@ export async function GET(req: NextRequest) {
   try {
     const res = await fetchWithRetry(url, {
       headers: buildHeaders(),
-      cache: "no-store",
+      next: { revalidate: 1800 }, // 缓存 30 分钟
     });
     const text = await res.text();
     return new NextResponse(text, {
@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
       method: "POST",
       headers: { ...buildHeaders(), "Content-Type": "application/json" },
       body,
-      cache: "no-store",
+      next: { revalidate: 1800 },
     });
     const text = await res.text();
     return new NextResponse(text, {
