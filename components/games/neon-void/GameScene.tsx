@@ -27,7 +27,7 @@ const GameScene: React.FC<GameSceneProps> = ({
   const [obstacles, setObstacles] = useState<
     { id: string; x: number; y: number; type: "box" | "pyramid" }[]
   >([]);
-  const [speed, setSpeed] = useState(GAME_CONSTANTS.SPEED_BASE);
+  const [speed, setSpeed] = useState<number>(GAME_CONSTANTS.SPEED_BASE);
 
   // Handle input
   const handleInput = useCallback(() => {
