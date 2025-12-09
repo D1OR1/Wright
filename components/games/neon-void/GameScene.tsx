@@ -51,14 +51,24 @@ const GameScene: React.FC<GameSceneProps> = ({
 
     const onCustomInput = () => handleInput();
 
+    // 只在游戏进行中响应点击事件，用于翻转重力
+    // 开始游戏和重新开始只能通过按钮触发
+    const onPointerDown = () => {
+      if (gameState === "playing") {
+        engine.flipGravity();
+      }
+    };
+
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("neon-void-input", onCustomInput);
+    window.addEventListener("pointerdown", onPointerDown);
 
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("neon-void-input", onCustomInput);
+      window.removeEventListener("pointerdown", onPointerDown);
     };
-  }, [handleInput]);
+  }, [handleInput, gameState, engine]);
 
   // Game loop
   useFrame((state, delta) => {
