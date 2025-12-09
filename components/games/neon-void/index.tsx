@@ -27,13 +27,7 @@ const NeonVoidGame: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className={styles.gameContainer}
-      onPointerDown={(e) => {
-        e.preventDefault();
-        window.dispatchEvent(new Event("neon-void-input"));
-      }}
-    >
+    <div className={styles.gameContainer}>
       {/* 3D Canvas Layer - Absolute positioning to fill container */}
       <div className={styles.canvasContainer}>
         <Canvas dpr={[1, 2]} style={{ width: "100%", height: "100%" }}>
