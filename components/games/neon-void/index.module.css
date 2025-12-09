@@ -1,0 +1,224 @@
+.gameContainer {
+  position: relative;
+  width: 95vw;
+  max-width: 1200px;
+  margin: 3rem auto;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+  border: 1px solid #1f2937;
+  background-color: #000;
+  user-select: none;
+  height: 500px;
+  touch-action: none;
+}
+
+.canvasContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scoreDisplay {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  color: #fff;
+  font-family: monospace;
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  z-index: 10;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.startOverlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.gameOverOverlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.title {
+  font-size: 3rem; /* text-5xl */
+  font-weight: 900; /* font-black */
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #22d3ee, #3b82f6, #9333ea);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.05em;
+  filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.8));
+  font-style: italic;
+  transform: skewX(-12deg);
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.75rem; /* text-6xl */
+  }
+}
+
+.subtitle {
+  color: #a5f3fc; /* text-cyan-200 */
+  margin-bottom: 2rem;
+  font-family: monospace;
+  font-size: 0.75rem; /* text-xs */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 0.875rem; /* text-sm */
+  }
+}
+
+.startButton {
+  position: relative;
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  overflow: hidden;
+  border-radius: 9999px;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+}
+
+.bgBlur {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, #06b6d4, #2563eb);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  filter: blur(12px);
+}
+
+.bgSolid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, #06b6d4, #2563eb);
+  opacity: 1;
+  transition: transform 0.3s;
+  border-radius: 9999px;
+  border: 1px solid rgba(103, 232, 249, 0.5);
+}
+
+.text {
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.startButton:hover .bgBlur {
+  opacity: 1;
+}
+
+.startButton:hover .bgSolid {
+  transform: scale(1.05);
+}
+
+.startButton:hover .text {
+  letter-spacing: 0.1em;
+}
+
+.instruction {
+  color: #6b7280; /* text-gray-500 */
+  margin-top: 1.5rem;
+  font-size: 0.75rem; /* text-xs */
+  font-family: monospace;
+}
+
+.crashedTitle {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 900;
+  color: #ef4444; /* text-red-500 */
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.6));
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .crashedTitle {
+    font-size: 3rem; /* text-5xl */
+  }
+}
+
+.scoreContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.finalScore {
+  font-size: 1.875rem; /* text-3xl */
+  color: #fff;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .finalScore {
+    font-size: 2.25rem; /* text-4xl */
+  }
+}
+
+.scoreLabel {
+  font-size: 0.75rem; /* text-xs */
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.bestScore {
+  font-size: 0.875rem; /* text-sm */
+  color: #22d3ee; /* text-cyan-400 */
+  margin-bottom: 2rem;
+  font-family: monospace;
+  border: 1px solid rgba(22, 78, 99, 0.5);
+  background-color: rgba(22, 78, 99, 0.2);
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.restartButton {
+  padding: 0.75rem 2rem;
+  background-color: #fff;
+  color: #000;
+  font-weight: 700;
+  border-radius: 9999px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  border: none;
+}
+
+.restartButton:hover {
+  background-color: #ecfeff; /* bg-cyan-50 */
+  transform: scale(1.05);
+}

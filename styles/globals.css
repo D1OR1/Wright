@@ -124,7 +124,6 @@ main {
 }
 
 .section {
-  padding: 40px 0;
   position: relative;
   background: transparent;
   z-index: 1;
@@ -160,7 +159,4 @@ main {
     padding: 0 15px;
   }
 
-  .section {
-    padding: 60px 0;
-  }
 }
