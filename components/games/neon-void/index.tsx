@@ -27,33 +27,41 @@ const NeonVoidGame: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.gameContainer}>
-      {/* 3D Canvas Layer - Absolute positioning to fill container */}
-      <div className={styles.canvasContainer}>
-        <Canvas dpr={[1, 2]} style={{ width: "100%", height: "100%" }}>
-          <OrthographicCamera makeDefault position={[-2, 0, 10]} zoom={40} />
-          <ambientLight intensity={0.3} />
-          <directionalLight position={[5, 5, 5]} intensity={0.5} />
+    <div className={styles.gameWrapper}>
+      {/* Header Introduction */}
 
-          <Suspense fallback={null}>
-            <GameScene
-              gameState={gameState}
-              onGameStateChange={setGameState}
-              onScoreChange={setScore}
-              onGameOver={handleGameOver}
-            />
-          </Suspense>
-        </Canvas>
+      <div className={styles.gameContainer}>
+        {gameState === "start" && (
+          <p className={styles.gameIntro}>加载不易，敢不敢玩一把挑战一下</p>
+        )}
+
+        {/* 3D Canvas Layer - Absolute positioning to fill container */}
+        <div className={styles.canvasContainer}>
+          <Canvas dpr={[1, 2]} style={{ width: "100%", height: "100%" }}>
+            <OrthographicCamera makeDefault position={[-2, 0, 10]} zoom={40} />
+            <ambientLight intensity={0.3} />
+            <directionalLight position={[5, 5, 5]} intensity={0.5} />
+
+            <Suspense fallback={null}>
+              <GameScene
+                gameState={gameState}
+                onGameStateChange={setGameState}
+                onScoreChange={setScore}
+                onGameOver={handleGameOver}
+              />
+            </Suspense>
+          </Canvas>
+        </div>
+
+        {/* UI Overlay Layer - Absolute positioning handled inside GameUI */}
+        <GameUI
+          gameState={gameState}
+          score={score}
+          highScore={highScore}
+          onStart={handleStart}
+          onRestart={handleRestart}
+        />
       </div>
-
-      {/* UI Overlay Layer - Absolute positioning handled inside GameUI */}
-      <GameUI
-        gameState={gameState}
-        score={score}
-        highScore={highScore}
-        onStart={handleStart}
-        onRestart={handleRestart}
-      />
     </div>
   );
 };
